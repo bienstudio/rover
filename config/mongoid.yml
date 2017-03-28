@@ -1,0 +1,10 @@
+development:
+  options:
+    use_utc: false
+    use_activesupport_time_zone: true
+    raise_not_found_error: false
+  clients:
+    default:
+      database: rover_development
+      hosts:
+        - localhost:27017
