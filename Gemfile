@@ -14,6 +14,8 @@ gem 'dotenv'
 
 gem 'mongoid'
 
+gem 'bcrypt-ruby'
+
 gem 'oj'
 gem 'rabl'
 
@@ -24,6 +26,10 @@ end
 group :test do
   gem 'rspec'
   gem 'rack-test', require: 'rack/test'
+  gem 'mongoid-rspec', github: 'mongoid-rspec/mongoid-rspec'
+
+  gem 'factory_girl'
+  gem 'database_cleaner'
 
   gem 'rubocop'
 end
