@@ -15,7 +15,7 @@ module Rover
           when ActiveInteraction::InvalidInteractionError
             Rover::Errors::InvalidRequest.new(message: e.message)
           when JSON::ParserError
-            Rover::Errors::InvalidRequest.new(message: "Problem parsing JSON")
+            Rover::Errors::InvalidRequest.new(message: 'Problem parsing JSON')
           when Mongoid::Errors::DocumentNotFound
             Rover::Errors::NotFound.new
           when Sinatra::NotFound

@@ -17,6 +17,8 @@ gem 'mongoid'
 
 gem 'bcrypt'
 
+gem 'pundit'
+
 gem 'active_interaction'
 
 gem 'oj'

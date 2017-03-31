@@ -15,8 +15,7 @@ module Rover
           user = Rover::Models::User.new(inputs[:user])
 
           unless user.save
-            errors.details.merge!(user.errors.details)
-            errors.messages.merge!(user.errors.messages)
+            merge_errors!(user)
           end
 
           user

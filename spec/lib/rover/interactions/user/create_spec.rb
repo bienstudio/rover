@@ -31,11 +31,11 @@ describe Rover::Interactions::User::Create do
         )
       end
 
-      it 'merges error details' do
+      it 'includes error details' do
         expect(errored.errors.details.keys).to eql [:email, :password]
       end
 
-      it 'merges error messages' do
+      it 'includes error messages' do
         expect(errored.errors.messages.keys).to eql [:email, :password]
       end
     end

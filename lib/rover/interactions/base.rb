@@ -14,6 +14,19 @@ module Rover
 
         result
       end
+
+      def not_authorized!
+        errors.add(:current_user, 'not authorized')
+      end
+
+      def not_found!(key)
+        errors.add(key, 'not allowed')
+      end
+
+      def merge_errors!(record)
+        errors.details.merge!(record.errors.details)
+        errors.messages.merge!(record.errors.messages)
+      end
     end
   end
 end
