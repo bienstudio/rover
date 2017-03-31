@@ -28,6 +28,7 @@ require 'pry'
 require_relative app_root('config/boot')
 
 Dir['./spec/factories/*.rb'].sort.each { |f| require f }
+Dir['./spec/support/**/*.rb'].sort.each { |f| require f }
 
 RSpec.configure do |config|
   config.include Rack::Test::Methods

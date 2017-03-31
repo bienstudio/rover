@@ -14,7 +14,7 @@ module Rover
           post do
             user = User::Create.run!(user: params[:user])
 
-            rabl(user, 'user') if user.valid?
+            rabl(user, 'user')
           end
 
           namespace '/:id' do
