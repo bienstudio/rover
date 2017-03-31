@@ -1,0 +1,1 @@
+attributes :status, :type, :message

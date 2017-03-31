@@ -1,4 +1,4 @@
-describe User do
+describe Rover::Models::User do
   let(:user) { create(:user) }
 
   it { expect(user).to be_mongoid_document }
@@ -8,6 +8,7 @@ describe User do
   it { expect(user).to have_many :trips }
 
   it { expect(user).to validate_presence_of :email }
+  it { expect(user).to validate_uniqueness_of :email }
   it { expect(user).to validate_format_of(:email).to_allow('e@g.org').not_to_allow('foobar') }
 
   it { expect(user).to validate_presence_of(:password).on(:create) }
@@ -15,15 +16,15 @@ describe User do
 
   describe '.authenticate' do
     it 'returns user for matching email/password combination' do
-      expect(User.authenticate(user.email, 'sciencerulez')).to eql user
+      expect(Rover::Models::User.authenticate(user.email, 'sciencerulez')).to eql user
     end
 
     it 'returns nil if email not found' do
-      expect(User.authenticate('foobar', 'sciencerulez')).to eql nil
+      expect(Rover::Models::User.authenticate('foobar', 'sciencerulez')).to eql nil
     end
 
     it 'returns nil if email found but password does not match' do
-      expect(User.authenticate(user.email, 'foobar')).to eql nil
+      expect(Rover::Models::User.authenticate(user.email, 'foobar')).to eql nil
     end
   end
 

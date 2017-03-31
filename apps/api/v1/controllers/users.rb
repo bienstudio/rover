@@ -2,27 +2,31 @@ module Rover
   module API
     module V1
       class Users < Base
-        namespace '/users' do
+        include Rover::Interactions
 
-          # GET /api/v1/users
+        namespace '/users' do
           get do
           end
 
-          # POST /api/v1/users
+          get '/me' do
+          end
+
           post do
+            user = User::Create.run!(user: params[:user])
+
+            rabl(user, 'user') if user.valid?
           end
 
           namespace '/:id' do
-
-            # GET /api/v1/users/:id
             get do
+              user = User::Find.run!(user: { id: params[:id] })
+
+              rabl(user, 'user')
             end
 
-            # PATCH /api/v1/users/:id
             patch do
             end
 
-            # DELETE /api/v1/users/:id
             delete do
             end
           end

@@ -3,7 +3,7 @@ FactoryGirl.define do
     "bill#{n}@planetary.org"
   end
 
-  factory :user do
+  factory :user, class: Rover::Models::User do
     email
     password 'sciencerulez'
   end

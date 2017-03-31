@@ -1,4 +1,4 @@
-describe Trip do
+describe Rover::Models::Trip do
   let(:trip) { create(:trip) }
 
   it { expect(trip).to have_timestamps }

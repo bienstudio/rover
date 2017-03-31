@@ -1,40 +1,46 @@
-class Trip
-  include Mongoid::Document
-  include Mongoid::Timestamps
+module Rover
+  module Models
+    class Trip
+      include Mongoid::Document
+      include Mongoid::Timestamps
 
-  field :name, type: String
-  field :permalink, type: String
-  field :start_date, type: Date
-  field :end_date, type: Date
+      store_in collection: 'trips'
 
-  belongs_to :user
+      field :name, type: String
+      field :permalink, type: String
+      field :start_date, type: Date
+      field :end_date, type: Date
 
-  validates :name, presence: true
-  validates :user, presence: true
+      belongs_to :user
 
-  validate :validate_date_order
+      validates :name, presence: true
+      validates :user, presence: true
 
-  before_create :generate_permalink!
+      validate :validate_date_order
 
-  private
+      before_create :generate_permalink!
 
-  def validate_date_order
-    return unless start_date && end_date
+      private
 
-    if start_date > end_date
-      errors.add(:end_date, 'must be after start date')
-    end
-  end
+      def validate_date_order
+        return unless start_date && end_date
 
-  def generate_permalink!
-    candidate = self.name.parameterize
+        if start_date > end_date
+          errors.add(:end_date, 'must be after start date')
+        end
+      end
 
-    conflicts = Trip.where(user_id: self.user.id, permalink: candidate).count
+      def generate_permalink!
+        candidate = self.name.parameterize
 
-    if conflicts.zero?
-      self.permalink = self.name.parameterize
-    else
-      self.permalink = "#{self.name.parameterize}-#{conflicts}"
+        conflicts = Trip.where(user_id: self.user.id, permalink: candidate).count
+
+        if conflicts.zero?
+          self.permalink = self.name.parameterize
+        else
+          self.permalink = "#{self.name.parameterize}-#{conflicts}"
+        end
+      end
     end
   end
 end

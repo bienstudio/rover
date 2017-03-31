@@ -10,6 +10,8 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
+    active_interaction (3.5.0)
+      activemodel (>= 4, < 6)
     activemodel (5.0.2)
       activesupport (= 5.0.2)
     activesupport (5.0.2)
@@ -20,17 +22,19 @@ GEM
     ast (2.3.0)
     backports (3.7.0)
     bcrypt (3.1.11)
-    bcrypt-ruby (3.1.5)
-      bcrypt (>= 3.1.3)
     bson (4.2.1)
     coderay (1.1.1)
     concurrent-ruby (1.0.5)
     database_cleaner (1.5.3)
     diff-lcs (1.3)
+    docile (1.1.5)
     dotenv (2.2.0)
     factory_girl (4.8.0)
       activesupport (>= 3.0.0)
+    foreman (0.83.0)
+      thor (~> 0.19.1)
     i18n (0.8.1)
+    json (2.0.3)
     method_source (0.8.2)
     minitest (5.10.1)
     mongo (2.4.1)
@@ -77,6 +81,11 @@ GEM
       ruby-progressbar (~> 1.7)
       unicode-display_width (~> 1.0, >= 1.0.1)
     ruby-progressbar (1.8.1)
+    simplecov (0.14.1)
+      docile (~> 1.1.0)
+      json (>= 1.8, < 3)
+      simplecov-html (~> 0.10.0)
+    simplecov-html (0.10.0)
     sinatra (1.4.8)
       rack (~> 1.5)
       rack-protection (~> 1.4)
@@ -93,6 +102,7 @@ GEM
     sinatra-router (0.2.3)
       sinatra (~> 1.4)
     slop (3.6.0)
+    thor (0.19.4)
     thread_safe (0.3.6)
     tilt (2.0.7)
     tzinfo (1.2.3)
@@ -103,10 +113,12 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bcrypt-ruby
+  active_interaction
+  bcrypt
   database_cleaner
   dotenv
   factory_girl
+  foreman
   mongoid
   mongoid-rspec!
   oj
@@ -117,12 +129,14 @@ DEPENDENCIES
   rake
   rspec
   rubocop
+  simplecov
   sinatra
+  sinatra-contrib
   sinatra-namespace
   sinatra-router
 
 RUBY VERSION
-   ruby 2.4.0p0
+   ruby 2.4.1p111
 
 BUNDLED WITH
-   1.13.7
+   1.14.6

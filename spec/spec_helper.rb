@@ -1,5 +1,9 @@
 ENV['RACK_ENV'] = 'test'
 
+require 'simplecov'
+
+SimpleCov.start
+
 def spec_root(path = nil)
   root = Pathname.new(File.expand_path('..', __FILE__))
 
