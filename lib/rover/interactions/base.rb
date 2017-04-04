@@ -9,7 +9,11 @@ module Rover
         run
 
         unless valid?
-          raise Rover::Errors::InvalidRequest.new(message: errors.details)
+          if errors.messages[:current_user].include? 'not authorized'
+            raise Rover::Errors::NotAuthorized.new
+          else
+            raise Rover::Errors::InvalidRequest.new(message: errors.details)
+          end
         end
 
         result
@@ -17,10 +21,12 @@ module Rover
 
       def not_authorized!
         errors.add(:current_user, 'not authorized')
+        return nil
       end
 
       def not_found!(key)
         errors.add(key, 'not allowed')
+        return nil
       end
 
       def merge_errors!(record)

@@ -9,6 +9,8 @@ module Rover
         Rack::Builder.new do
           use Rover::Extensions::ErrorHandler
 
+          Rover::Extensions::Authentication.registered(self)
+
           run App
         end
       end

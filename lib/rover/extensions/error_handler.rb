@@ -1,3 +1,5 @@
+require 'pry'
+
 module Rover
   module Extensions
     class ErrorHandler

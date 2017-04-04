@@ -7,6 +7,7 @@ module Rover
         register Sinatra::Namespace
 
         helpers Rover::Helpers::Response
+        helpers Rover::Helpers::Authentication
 
         configure do
           set :sessions, true
@@ -21,6 +22,8 @@ module Rover
 
         before do
           content_type :json
+
+          authorize!
         end
       end
     end

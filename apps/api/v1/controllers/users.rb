@@ -5,29 +5,49 @@ module Rover
         include Rover::Interactions
 
         namespace '/users' do
-          get do
-          end
-
-          get '/me' do
-          end
-
           post do
             user = User::Create.run!(user: params[:user])
 
             rabl(user, 'user')
           end
 
-          namespace '/:id' do
-            get do
-              user = User::Find.run!(user: { id: params[:id] })
+          get '/me' do
+            rabl(current_user, 'user')
+          end
 
-              rabl(user, 'user')
+          namespace '/:id' do
+            before do
+              pass if request.path_info.include?('me')
+
+              @user ||= User::Find.run!(
+                current_user: current_user,
+                user: {
+                  id: params[:id]
+                }
+              )
+            end
+
+            get do
+              rabl(@user, 'user')
             end
 
             patch do
+              @user = User::Update.run!(
+                current_user: current_user,
+                record: @user,
+                user: params[:user]
+              )
+
+              rabl(@user, 'user')
             end
 
             delete do
+              @user = User::Destroy.run!(
+                current_user: current_user,
+                record: @user
+              )
+
+              rabl(@user, 'deleted')
             end
           end
         end

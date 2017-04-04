@@ -5,7 +5,7 @@ ruby '2.4.1'
 gem 'rake'
 
 gem 'sinatra'
-gem 'sinatra-namespace'
+# gem 'sinatra-namespace'
 gem 'sinatra-router'
 gem 'sinatra-contrib'
 
@@ -16,6 +16,8 @@ gem 'dotenv'
 gem 'mongoid'
 
 gem 'bcrypt'
+
+gem 'sinatra_warden'
 
 gem 'pundit'
 

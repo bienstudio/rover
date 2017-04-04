@@ -1,26 +1,28 @@
 module Rover
   module Interactions
-    module User
+    module Trip
       class Find < Rover::Interactions::Base
         object :current_user, class: Rover::Models::User
-        hash :user do
+        hash :trip do
           string :id
         end
 
         def execute
-          user = Rover::Models::User.find(inputs[:user]['id'])
+          trip = Rover::Models::Trip.find(inputs[:trip]['id'])
 
-          unless user
-            not_found!(:user)
+          unless trip
+            not_found!(:trip)
+
             return nil
           end
 
-          unless Rover::Policies::User.new(current_user, user).show?
+          unless Rover::Policies::Trip.new(current_user, trip).show?
             not_authorized!
+
             return nil
           end
 
-          user
+          trip
         end
       end
     end
