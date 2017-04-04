@@ -6,11 +6,13 @@ require_relative 'rover/helpers'
 require_relative 'rover/interactions'
 
 require_relative '../apps/api/v1'
+require_relative '../apps/web'
 
 module Rover
   def self.apps
     Rack::URLMap.new(
-      '/api/v1' => Rover::API::V1.new
+      '/api/v1' => Rover::API::V1.new,
+      '/' => Rover::Web.new
     )
   end
 end

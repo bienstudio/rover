@@ -26,6 +26,8 @@ gem 'active_interaction'
 gem 'oj'
 gem 'rabl'
 
+gem 'haml'
+
 group :development do
   gem 'pry'
   gem 'foreman'
