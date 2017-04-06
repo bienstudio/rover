@@ -7,8 +7,29 @@
 
     %title Rover
 
-    %link(rel='stylesheet' href='/assets/application.css')
-  %body
-    = yield
+    %link(rel='stylesheet' href='/assets/css/application.css')
 
-    %script(src='/assets/application.js')
+    %script(src="https://use.typekit.net/kes2xns.js")
+    :javascript
+      try {
+        Typekit.load({ async: true });
+      } catch (e) { }
+
+  %body
+    #app
+      %app-nav
+        %ul{slot: 'primary-nav'}
+          %li
+            %a.nav__item{href: '#'} Trips
+          %li
+            %a.nav__item{href: '#'} Destinations
+        %ul{slot: 'secondary-nav'}
+          %li
+            %a.nav__item{href: '#'} Login
+          %li
+            %a.nav__item{href: '#'} Join
+      %main
+        = yield
+      %app-footer
+
+    %script(src='/assets/jsc/application.js')

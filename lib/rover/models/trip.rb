@@ -20,6 +20,17 @@ module Rover
 
       before_create :generate_permalink!
 
+      def to_props
+        {
+          id: self.id.to_s,
+          name: self.name,
+          permalink: self.permalink,
+          start_date: self.start_date,
+          end_date: self.end_date,
+          user: user.to_props(json: false)
+        }.to_json
+      end
+
       private
 
       def validate_date_order

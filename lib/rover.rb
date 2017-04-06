@@ -11,8 +11,8 @@ require_relative '../apps/web'
 module Rover
   def self.apps
     Rack::URLMap.new(
-      '/api/v1' => Rover::API::V1.new,
-      '/' => Rover::Web.new
+      '/' => Rover::Web.new,
+      '/api/v1' => Rover::API::V1.new
     )
   end
 end

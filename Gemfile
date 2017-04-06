@@ -5,7 +5,6 @@ ruby '2.4.1'
 gem 'rake'
 
 gem 'sinatra'
-# gem 'sinatra-namespace'
 gem 'sinatra-router'
 gem 'sinatra-contrib'
 
@@ -31,6 +30,7 @@ gem 'haml'
 group :development do
   gem 'pry'
   gem 'foreman'
+  gem 'shotgun'
 end
 
 group :test do
