@@ -14,6 +14,8 @@ module.exports = {
   },
   "rules": {
     "space-before-function-paren": 0,
-    "comma-dangle": 0
+    "comma-dangle": 0,
+    "no-param-reassign": 1,
+    "no-shadow": 1
   }
 };

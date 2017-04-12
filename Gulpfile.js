@@ -44,6 +44,8 @@ gulp.task('eslint', () => gulp.src(paths.jsc)
 gulp.task('watch', () => {
   livereload.listen();
 
+  gulp.start('default');
+
   gulp.watch('./apps/web/assets/jsc/**/*', ['jsc']);
   gulp.watch('./apps/web/assets/css/**/*.sass', ['css']);
   gulp.watch('./apps/web/assets/fonts/**/*', ['fonts']);

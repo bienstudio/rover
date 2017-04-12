@@ -12,29 +12,22 @@
 </template>
 
 <script>
+  import { mapGetters } from 'vuex';
+
   export default {
     data () {
       return {
-        mobile: false,
         navShowing: false
       };
     },
 
-    mounted () {
-      window.addEventListener('resize', this.handleResize);
-
-      this.handleResize();
-    },
-
-    beforeDestroy () {
-      window.removeEventListener('resize', this.handleResize);
+    computed: {
+      ...mapGetters({
+        mobile: 'mobile'
+      })
     },
 
     methods: {
-      handleResize () {
-        this.mobile = document.documentElement.clientWidth <= 960;
-      },
-
       handleToggle () {
         this.navShowing = !this.navShowing;
       }
@@ -42,7 +35,7 @@
   };
 </script>
 
-<style lang="sass" scoped>
+<style lang="sass">
   @import "~css/_base.sass"
 
   .header
@@ -109,4 +102,5 @@
           li
             display: block
             margin-left: 0
+
 </style>

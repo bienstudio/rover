@@ -876,18 +876,5 @@ html:hover [class^="ss-"] {
 .hidden {
   display: none !important; }
 
-body {
-  background: #fefefe;
-  color: #414141;
-  display: flex;
-  flex-flow: column;
-  font-family: "usual", Helvetica Neue, Helvetica, Arial, sans-serif;
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 2em;
-  max-width: 2200px;
-  min-height: 100vh; }
-
-a {
-  color: #414141;
-  text-decoration: none; }
+.trips {
+  display: flex; }

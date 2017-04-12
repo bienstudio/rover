@@ -17,19 +17,8 @@
 
   %body
     #app
-      %app-nav
-        %ul{slot: 'primary-nav'}
-          %li
-            %a.nav__item{href: '#'} Trips
-          %li
-            %a.nav__item{href: '#'} Destinations
-        %ul{slot: 'secondary-nav'}
-          %li
-            %a.nav__item{href: '#'} Login
-          %li
-            %a.nav__item{href: '#'} Join
-      %main
-        = yield
-      %app-footer
+      %app
+        %main(slot="content")
+          = yield
 
     %script(src='/assets/jsc/application.js')

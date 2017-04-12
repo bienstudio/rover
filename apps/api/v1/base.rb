@@ -17,7 +17,7 @@ module Rover
         configure :development do
           register Sinatra::Reloader
 
-          set :reloading, true
+          enable :reloader
         end
 
         before do

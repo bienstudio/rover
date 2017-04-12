@@ -5,6 +5,7 @@ require 'sinatra/router'
 require_relative 'base'
 
 require_relative 'controllers/ui'
+require_relative 'controllers/trips'
 
 module Rover
   module Web
@@ -16,6 +17,7 @@ module Rover
 
       use Sinatra::Router do
         mount UI
+        mount Trips
       end
     end
   end

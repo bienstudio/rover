@@ -1,29 +1,27 @@
 <template>
   <div class="trip">
-    <h3 class="trip__name"><a href="#">{{ trip.name }}</a></h3>
+    <header>
+      <h2>{{ trip.name }}</h2>
+    </header>
+    <section class="itinerary">
+      <div class="plan">
+
+      </div>
+    </section>
   </div>
 </template>
 
 <script>
   export default {
     props: {
-      trip: Object
-    },
-
-    mounted () {
-      this.parseDates();
-    },
-
-    methods: {
-      parseDates () {
-        this.trip.start_date = new Date(this.trip.start_date);
-        this.trip.end_date = new Date(this.trip.end_date);
-      }
+      trip: Object,
+      plans: Array
     }
-  };
+  }
 </script>
 
 <style lang="sass" scoped>
-  @import "~css/_variables.sass"
+  @import "~css/_base.sass"
+
 
 </style>

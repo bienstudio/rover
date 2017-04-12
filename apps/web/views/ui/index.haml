@@ -1,2 +1,3 @@
--# - Rover::Models::Trip.all.each do |trip|
-  -# %trip{'v-bind:trip' => trip.to_props}
+.trips
+  - Rover::Models::Trip.all.each do |trip|
+    %trip-tile{'v-bind:trip' => trip.to_props}
