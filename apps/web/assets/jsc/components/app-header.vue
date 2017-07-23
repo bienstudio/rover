@@ -23,7 +23,8 @@
 
     computed: {
       ...mapGetters({
-        mobile: 'mobile'
+        mobile: 'mobile',
+        user: 'user'
       })
     },
 

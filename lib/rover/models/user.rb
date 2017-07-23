@@ -24,15 +24,13 @@ module Rover
       before_create :encrypt_password!, :generate_api_keys!
       before_update :encrypt_password!, if: -> { password }
 
-      def to_props(json: true)
-        props = {
+      def to_props
+        {
           id: self.id.to_s,
-          email: self.email.to_s
+          email: self.email,
+          created_at: self.created_at,
+          updated_at: self.updated_at
         }
-
-        return props.to_json if json
-
-        props
       end
 
       def self.authenticate(_email, _password)

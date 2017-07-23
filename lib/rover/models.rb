@@ -9,3 +9,6 @@ end
 
 require_relative 'models/user'
 require_relative 'models/trip'
+require_relative 'models/plan'
+require_relative 'models/plans/activity'
+require_relative 'models/plans/flight'

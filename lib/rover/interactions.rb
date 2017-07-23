@@ -16,3 +16,7 @@ require_relative 'interactions/trip/find'
 require_relative 'interactions/trip/create'
 require_relative 'interactions/trip/update'
 require_relative 'interactions/trip/destroy'
+
+require_relative 'interactions/plan/create'
+
+require_relative 'interactions/plan/flight/create'

@@ -1,3 +1,10 @@
-.trips
-  - Rover::Models::Trip.all.each do |trip|
-    %trip-tile{'v-bind:trip' => trip.to_props}
+%figure.ui-item
+  %dropdown
+    %span{slot: 'button'} Button
+    %ul{slot: 'options'}
+      %li
+        %a{href: '#'} Item One
+      %li
+        %a{href: '#'} Item Two
+      %li
+        %a{href: '#'} Item Three

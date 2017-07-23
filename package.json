@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "description": "Where do you want to go?",
   "private": true,
+  "scripts": {
+    "dev": "gulp watch"
+  },
   "devDependencies": {
     "babel-core": "^6.24.0",
     "babel-loader": "^6.4.1",
@@ -31,6 +34,7 @@
   },
   "dependencies": {
     "moment": "^2.18.1",
+    "moment-range": "^3.0.3",
     "vue": "^2.2.6",
     "vuex": "^2.2.1"
   }

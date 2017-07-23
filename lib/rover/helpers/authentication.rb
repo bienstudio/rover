@@ -19,11 +19,15 @@ module Rover
         env.has_key?('HTTP_AUTHORIZATION') ? user(:api) : user
       end
 
+      def current_user_as_props
+        authenticated? ? current_user.to_props : '{}'
+      end
+
       private
 
-      def authenticated?
-        env.has_key?('HTTP_AUTHORIZATION') && warden.authenticate(:api_credentials, scope: :api)
-      end
+      # def authenticated?
+      #   env.has_key?('HTTP_AUTHORIZATION') && warden.authenticate(:api_credentials, scope: :api)
+      # end
     end
   end
 end

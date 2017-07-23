@@ -9,7 +9,8 @@ const webpackConfig = require('./webpack.config.js');
 const paths = {
   jsc: ['./apps/web/assets/jsc/**/*'],
   css: ['./apps/web/assets/css/**/*.sass'],
-  fonts: ['./apps/web/assets/fonts/**/*']
+  fonts: ['./apps/web/assets/fonts/**/*'],
+  img: ['./apps/web/assets/img/*']
 }
 
 gulp.task('jsc', () => gulp.src(paths.jsc)
@@ -36,6 +37,11 @@ gulp.task('fonts', () => {
              .pipe(gulp.dest('./public/assets/fonts/'))
 });
 
+gulp.task('img', () => {
+  return gulp.src(paths.img)
+             .pipe(gulp.dest('./public/assets/img/'))
+});
+
 gulp.task('eslint', () => gulp.src(paths.jsc)
                                .pipe(eslint())
                                .pipe(eslint.format())
@@ -47,8 +53,9 @@ gulp.task('watch', () => {
   gulp.start('default');
 
   gulp.watch('./apps/web/assets/jsc/**/*', ['jsc']);
-  gulp.watch('./apps/web/assets/css/**/*.sass', ['css']);
+  gulp.watch('./apps/web/assets/css/**/*.sass', ['css', 'jsc']);
   gulp.watch('./apps/web/assets/fonts/**/*', ['fonts']);
+  gulp.watch('./apps/web/assets/img/*', ['img']);
 });
 
-gulp.task('default', ['jsc', 'css']);
+gulp.task('default', ['jsc', 'css', 'fonts', 'img']);

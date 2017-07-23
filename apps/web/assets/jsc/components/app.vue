@@ -1,13 +1,16 @@
 <template>
   <div id="rover">
     <app-header>
-      <ul slot="primary-nav">
-        <li><a href="#">Trips</a></li>
+      <ul slot="primary-nav" v-if="loggedIn">
+        <li><a href="/trips">Trips</a></li>
         <li><a href="#">Destinations</a></li>
       </ul>
+      <ul slot="primary-nav" v-else>
+        Not logged in
+      </ul>
       <ul slot="secondary-nav">
-        <li><a href="#">Login</a></li>
-        <li><a href="#">Join</a></li>
+        <li><a href="/login">Login</a></li>
+        <li><a href="/join">Join</a></li>
       </ul>
     </app-header>
     <slot name="content"></slot>
@@ -29,9 +32,15 @@
   export default {
     components: { AppHeader, AppFooter },
 
+    props: {
+      current_user: Object
+    },
+
     computed: {
       ...mapGetters({
-        mobile: 'mobile'
+        mobile: 'mobile',
+        user: 'user',
+        loggedIn: 'loggedIn'
       })
     },
 
@@ -39,6 +48,8 @@
       window.addEventListener('resize', this.handleResize);
 
       this.handleResize();
+
+      this.setUser(this.current_user);
     },
 
     beforeDestroy () {
@@ -47,7 +58,8 @@
 
     methods: {
       ...mapMutations([
-        'handleResize'
+        'handleResize',
+        'setUser'
       ]),
     }
   };

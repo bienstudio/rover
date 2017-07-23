@@ -870,11 +870,30 @@ html:hover [class^="ss-"] {
 .ss-calendardelete:before, .ss-calendardelete.right:after {
   content: ''; }
 
+@font-face {
+  font-family: "Untitled Sans";
+  font-weight: 400;
+  src: url("/assets/fonts/untitled-sans/UntitledSansTest-Regular.otf") format("opentype"); }
+
+@font-face {
+  font-family: "Untitled Sans";
+  font-weight: 600;
+  src: url("/assets/fonts/untitled-sans/UntitledSansTest-Medium.otf") format("opentype"); }
+
+@font-face {
+  font-family: "Untitled Sans";
+  font-weight: 700;
+  src: url("/assets/fonts/untitled-sans/UntitledSansTest-Bold.otf") format("opentype"); }
+
 .visible {
   display: block !important; }
 
 .hidden {
   display: none !important; }
 
-.trips {
-  display: flex; }
+.ui-item {
+  border: 1px solid #e6e6e6;
+  margin-bottom: 2rem;
+  padding: 1rem; }
+  .ui-item figcaption {
+    margin-top: 1rem; }

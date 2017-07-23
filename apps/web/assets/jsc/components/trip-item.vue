@@ -2,7 +2,7 @@
   <div class="trip">
     <a :href="`/trips/${trip.permalink}`">
       <figure>
-        <img src="https://media.timeout.com/images/100644443/image.jpg">
+        <img src="/assets/img/westminster.jpg">
       </figure>
       <section>
         <h3>{{ trip.name }}</h3>

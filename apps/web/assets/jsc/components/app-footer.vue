@@ -39,6 +39,7 @@
     border-top: 1px solid $color-grey-light
     color: $color-grey-dark
     display: flex
+    margin-top: rhythm(1)
     padding: rhythm(1)
 
     a

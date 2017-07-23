@@ -7,6 +7,7 @@ gem 'rake'
 gem 'sinatra'
 gem 'sinatra-router'
 gem 'sinatra-contrib'
+gem 'sinatra-flash'
 
 gem 'puma'
 
@@ -27,10 +28,14 @@ gem 'rabl'
 
 gem 'haml'
 
+gem 'skyscanner'
+gem 'flightstats-flex', github: 'diditclear/flightstats-client-ruby'
+
 group :development do
   gem 'pry'
   gem 'foreman'
   gem 'shotgun'
+  gem 'log_buddy'
 end
 
 group :test do

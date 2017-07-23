@@ -37,4 +37,12 @@ describe Rover::Models::Trip do
       end
     end
   end
+
+  describe '#plans_by_date' do
+    let(:plans) { trip.plans_by_date }
+
+    it 'has a key for each date' do
+      expect(plans.keys).to eql (trip.start_date..trip.end_date).to_a
+    end
+  end
 end
